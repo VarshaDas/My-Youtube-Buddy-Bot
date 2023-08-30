@@ -17,8 +17,16 @@ def fetch_comments_from_video(video_id, api_key):
         maxResults=100,  # Adjust as needed
         order="time"
     )
+
+    comments = []
     response = request.execute()
-    return response
+
+    for item in response['items']:
+        comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
+        comments.append(comment)
+
+    return comments
+
 
 def reply_to_comment(comment_text, comment_id, developer_key, client_secrets_file):
     # Function to reply to a comment
