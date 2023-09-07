@@ -10,7 +10,7 @@ from openai_processing import generate_bot_response
 def main():
     # Environment and API setup
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
-    DEVELOPER_KEY = "AIzaSyCnAl4aZu7fgFoJZpUC2lbNCYTEmQ9odA8"
+    DEVELOPER_KEY = ""
 
     if 'comments' not in st.session_state:
         st.session_state.comments = []
