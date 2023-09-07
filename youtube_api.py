@@ -21,11 +21,11 @@ def fetch_comments_from_video(video_id, api_key):
     comments = []
     response = request.execute()
 
-    for item in response['items']:
-        comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
-        comments.append(comment)
+    # for item in response['items']:
+    #     comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
+    #     comments.append(comment)
 
-    return comments
+    return response
 
 
 def reply_to_comment(comment_text, comment_id, developer_key, client_secrets_file):
@@ -53,7 +53,8 @@ def reply_to_comment(comment_text, comment_id, developer_key, client_secrets_fil
         part="snippet",
         body=reply_payload
     )
-    
+
+
     try:
         response = request.execute()
         print("Reply posted successfully!")
